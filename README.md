@@ -40,9 +40,8 @@ Our StrokeNet needs the support of [CipherDAug: Ciphertext based Data Augmentati
 In LOC/StrokeNet: 
 ``
 git clone https://github.com/protonish/fairseq-cipherdaug.git \
-cd fairseq-cipherdaug \
-pip install --editable ./
 ``
+And follow instructions in [FairSeq](https://github.com/protonish/fairseq-cipherdaug.git) to install fairseq.
 
 ### Example training script
 
