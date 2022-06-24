@@ -1,0 +1,8 @@
+train.zh-en.zh
+train.zh-en.en
+valid.zh-en.zh
+valid.zh-en.en
+test.zh-en.zh
+test.zh-en.en
+
+In our paper, we use MT06 set as the valid set and all the rest sets as the test set.

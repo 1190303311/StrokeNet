@@ -1,5 +1,5 @@
 
-The official code for our EMNLP 2022 paper [Breaking the Representation Bottleneck of Chinese Characters: \\ Neural Machine Translation with Stroke Sequence Modeling](https://arxiv.org/pdf/2204.00665.pdf).
+The official code for our EMNLP 2022 paper [Breaking the Representation Bottleneck of Chinese Characters: \ Neural Machine Translation with Stroke Sequence Modeling](https://arxiv.org/pdf/2204.00665.pdf).
 
 ## Data Preprocess
 All example scripts are based the NIST Zh:arrow_right:En.
@@ -7,18 +7,19 @@ All example scripts are based the NIST Zh:arrow_right:En.
 Place the NIST train, valid and test data in the `data/NIST/source` directory.
 File name format should be train.zh-en.zh, train.zh-en.en and so on.
 
-### Converting Chinese to Latinized stroke sequence and cipher with keys.
+### Convert Chinese to Latinized stroke sequence and cipher with keys.
 
 ```bash
-python preprocess/zh2letter-rot.py -i  path/to/input-dir -o path/to/output-dir --keys key values \
-    --v path-to-chinese-stroke-dict -s src-lang -t tgt-lang
+python preprocess/zh2letter-rot.py -i  path/to/input-dir -o path/to/output-dir  \
+    --v path-to-chinese-stroke-dict -s src-lang -t tgt-lang --keys cipherkey-list
 ```
 
 example:
 ```bash
-python preprocess/zh2letter-rot.py -i /home/StrokeNet/data/NIST/source -o /home/Stroke/data/NIST/strokenet_data -v /home/StrokeNet/vocab/zh2letter.txt -s zh -t en --keys 1 2
+python preprocess/zh2letter-rot.py -i /home/StrokeNet/data/NIST/source -s zh -t en --keys 1 2 \
+-o /home/Stroke/data/NIST/strokenet_data -v /home/StrokeNet/vocab/zh2letter.txt
 ```
-This creates all parallel data in the output dir with cipher-1 and cipher-2 input.
+This creates all parallel Latinized stroke data in the output dir with cipher-1 and cipher-2.
 
 ### Preprocessing
 We use subword-nmt for BPE oprations.
@@ -38,8 +39,8 @@ Our StrokeNet needs the support of [CipherDAug: Ciphertext based Data Augmentati
 
 In LOC/StrokeNet: 
 ``
-git clone https://github.com/protonish/fairseq-cipherdaug.git
-cd fairseq-cipherdaug
+git clone https://github.com/protonish/fairseq-cipherdaug.git \
+cd fairseq-cipherdaug \
 pip install --editable ./
 ``
 
@@ -55,8 +56,8 @@ Evaluation exceeds after training is done as shown in `train.sh`
 Please consider citing us of you find any part of our code or work useful:
 ```
 @inproceedings {kambhatla-etal-2022-cipherdaug,
-   abbr="ACL",
-   title = "CipherDAug: Ciphertext Based Data Augmentation for Neural Machine Translation",
+   abbr="EMNLP",
+   title = "Breaking the Representation Bottleneck of Chinese Characters: Neural Machine Translation with Stroke Sequence Modeling",
    author = "Kambhatla, Nishant and
    Born, Logan and
    Sarkar, Anoop",
